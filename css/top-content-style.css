@@ -1,0 +1,34 @@
+.top-content {
+    padding: var(--pad);
+  }
+  
+  /* Titolo */
+  .top-content h1 {
+    margin: 0 0 0.5em;       /* niente spazio sopra, 0.5em sotto */
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  /* Contenitore di link */
+  .links-list {
+    display: flex;
+    flex-direction: column;  /* impila i link verticalmente */
+    gap: 0.5em;              /* spazio uniforme tra i link */
+  }
+  
+  /* Stile dei link */
+  .link-item {
+    display: inline-block;
+    font-size: 1rem;
+    color: #00e5ff;
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+  
+  .link-item:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+  
