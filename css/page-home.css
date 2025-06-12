@@ -1,0 +1,19 @@
+/* css/page-home.css */
+
+.home-main {
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.home-main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.home-main p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
