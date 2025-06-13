@@ -1,18 +1,54 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+/*
+  per rendere le variabili “globali” – cioè visibili da qualunque parte del foglio di stile – si usa
+  questo modo: :root è il selettore che targetta l’elemento <html>, quindi ogni custom property ivi dichiarata 
+  è ereditata da tutto il documento.
+*/
+:root {
+  --pad: max(30px, 1vmin); 
 }
 
-body {
-  background-color: #000;
+html, body {
+  /* margin: 0;
+  padding: 0; */
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  
+}
+
+/* Area contenuto “statica” senza scroll esterno */
+main[x-ref="content"] {
+  position: absolute;
+  top: 60px; /* uguale all’altezza dell’header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden; /* o auto, se vuoi scroll solo dentro main */
+  padding: 20px;    /* opzionale, per dare un po’ di respiro ai contenuti */
+}
+
+.top-content {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  text-align: center;
 }
 
-.container p {
-  color: #fff;
-  font-size: 2rem;
+.top-content h1 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.5rem;
+}
+
+.video-container iframe {
+  position: relative;
+  top: 100px; left: 0px;
+  width: 560;
+  height: 315;
+  border: 0;
 }

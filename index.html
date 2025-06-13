@@ -3,20 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello Buonasera Salve</title>
+  <title>Buonasera salve</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/frame-line.css">
+  <link rel="stylesheet" href="css/top-content-style.css">
+  <link rel="stylesheet" href="css/page-home.css">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> <!-- utilizzato per o pulsanti -->
+  <script src="js/app.js"></script>
 </head>
-<div class="container">
-  <!-- Video 1 -->
-  <iframe
-    width="560" height="315"
-    src="https://www.youtube-nocookie.com/embed/FBNFJSjscnc"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
 
-  <!-- Aggiungi altri iframe per altri video -->
+<div x-data="app()" x-init="init()">
+  <div ID="Frame" class="frame">
+    <div class="frame_line frame_line-left"></div>
+    <div class="frame_line frame_line-right"></div>
+    <div class="frame_line frame_line-top"></div>
+    <div class="frame_line frame_line-bottom"></div>
+  </div>
+  <header class="section-title" x-init="load('home')">
+    <h1>Il Mio Titolo</h1>
+    <h2>Il mio sottotitolo</h2>
+    <nav class="sidebar">
+      <ol>
+        <li :class="{ 'is-selected': current==='home' }" @click="load('home')">
+          <div class="_dot">●</div><span class="_text">Home</span>
+        </li>
+        <li :class="{ 'is-selected': current==='project' }" @click="load('project')">
+          <div class="_dot">●</div><span class="_text">Projects</span>
+        </li>
+      </ol>
+    </nav>
+  </header>
+  <div x-ref="content"></div>
 </div>
 </html>
