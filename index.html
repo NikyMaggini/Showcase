@@ -3,35 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <base href="https://github.com/NikyMaggini/Showcase"> -->
   <title>Buonasera salve</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/frame_line.css">
+  <link rel="stylesheet" href="css/frame-line.css">
   <link rel="stylesheet" href="css/top-content-style.css">
   <link rel="stylesheet" href="css/page-home.css">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> <!-- utilizzato per o pulsanti -->
-  <script defer>
-    function app() {
-      return {
-        current: null,
-        init() { this.load('home') },
-        async load(page) {
-          this.current = page;
-          try {
-            const res  = await fetch(`./pages/${page}.html`);
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            this.$refs.content.innerHTML = await res.text();
-          } catch(e) {
-            console.error('Fetch errore:', e);
-            this.$refs.content.innerHTML = '<p>Errore nel caricamento.</p>';
-          }
-        }
-      }
-    }
-  </script>
+  <script src="js/app.js"></script>
 </head>
 
-<body x-data="app()" >
+<div x-data="app()" x-init="init()">
   <div ID="Frame" class="frame">
     <div class="frame_line frame_line-left"></div>
     <div class="frame_line frame_line-right"></div>
@@ -40,6 +21,7 @@
   </div>
   <header class="section-title" x-init="load('home')">
     <h1>Il Mio Titolo</h1>
+    <h2>Il mio sottotitolo</h2>
     <nav class="sidebar">
       <ol>
         <li :class="{ 'is-selected': current==='home' }" @click="load('home')">
@@ -51,10 +33,6 @@
       </ol>
     </nav>
   </header>
-
-  <main x-ref="content">
-    <!-- qui verrà inserito via JavaScript il partial di default -->
-  </main>
-
-</body>
+  <div x-ref="content"></div>
+</div>
 </html>
