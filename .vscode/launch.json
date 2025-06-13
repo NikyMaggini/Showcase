@@ -1,0 +1,15 @@
+{
+
+    // configurazione per il debug di un'applicazione web in Chrome
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug client in Chrome",
+        "type": "chrome",
+        "request": "launch",
+        // URL su cui Live Server sta servendo
+        "url": "file:///D:/UnrealEngine/UE_projects/UE_projects_test/github-showcase/Showcase/index.html", 
+        "webRoot": "${workspaceFolder}"
+      }
+    ]
+  }
