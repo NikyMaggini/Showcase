@@ -1,0 +1,73 @@
+  /* Container sezione */
+.section-container {
+  position: static;
+  /* padding: 1rem; */
+  /*max-width: 300px;      /* o la larghezza che preferisci */
+  /*margin: 2rem auto;     /* centra orizzontalmente e aggiunge spazio verticale */
+}
+
+/* Titolo sezione */
+.section-title {
+  /*margin: 2rem auto 1rem auto;  /* 2rem sopra, 1rem sotto, auto = centro orizzontale */
+  margin-top: 2%;
+  margin-left: 3%;
+  text-align: left;           /* opzionale, per centrare il testo */
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.section-title h1 {
+  margin: 0;
+}
+.section-title h2 {
+  margin: 0;
+  font-size: 2rem;
+  margin-top: -0.2%;
+  margin-left: .5%;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+}
+
+/* Lista senza pallini e margini */
+.sidebar ol {
+  list-style: none; 
+  padding: 0;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+/* Ogni voce come riga orizzontale */
+.sidebar li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Il dot (pallino) */
+.sidebar ._dot {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+/* Il testo */
+.sidebar ._text {
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Stato selezionato */
+.sidebar li.is-selected ._dot {
+  color: #ffffff;
+}
+.sidebar li.is-selected ._text {
+  color: #ffffff;
+  font-weight: 600;
+}
