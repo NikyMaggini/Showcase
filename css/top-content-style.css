@@ -19,17 +19,22 @@
 .section-title h1 {
   margin: 0;
 }
+.section-title h2 {
+  margin: 0;
+  font-size: 2rem;
+  margin-top: -0.2%;
+  margin-left: .5%;
+}
 
-/* Rimuoviamo il fixed e adattiamo il menu al layout */
 .sidebar {
-  position: relative; /* o relativo se serve */
+  position: relative;
   z-index: 1;
   margin-top: 1rem;
 }
 
 /* Lista senza pallini e margini */
 .sidebar ol {
-  list-style: none; /* Rimuove i pallini */
+  list-style: none; 
   padding: 0;
   margin-top: 2%;
   margin-left: 2%;
@@ -44,14 +49,14 @@
   transition: color 0.2s;
 }
 
-/* Il dot (pallino) grigio di default */
+/* Il dot (pallino) */
 .sidebar ._dot {
   font-size: 1.2rem;
   color: #ffffff;
   margin-right: 0.5rem;
 }
 
-/* Il testo grigio scuro di default */
+/* Il testo */
 .sidebar ._text {
   font-size: 1rem;
   color: #ffffff;

@@ -4,23 +4,28 @@
   è ereditata da tutto il documento.
 */
 :root {
-  --pad: max(20px, 1vmin); 
+  --pad: max(30px, 1vmin); 
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  
 }
 
-
-body {
-  margin: 0;
-  background-color: rgb(0, 0, 0);
-  /*display: flex;*/
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
+/* Area contenuto “statica” senza scroll esterno */
+main[x-ref="content"] {
+  position: absolute;
+  top: 60px; /* uguale all’altezza dell’header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden; /* o auto, se vuoi scroll solo dentro main */
+  padding: 20px;    /* opzionale, per dare un po’ di respiro ai contenuti */
 }
 
 .top-content {
