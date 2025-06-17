@@ -1,15 +1,18 @@
 /*questo contenitore da usare solo per debug, poi probabilmente togliere*/
 .home-main {
-  /* max-width: 800px;
-  padding: 1rem;
-  background-color: rgba(240, 240, 240, 0.2);
-  border-radius: 8px; */
-  height: 100vh;              /* 100% dell’altezza viewport */
-  display: flex;              /* attivi Flexbox */
-  justify-content: center;    /* centra orizzontalmente */
-  align-items: center;        /* centra verticalmente */
-  margin: 0;                  /* azzeri eventuali spazi del body */
-  padding: 0;
+  /* height: 75%;              
+  display: flex;            
+  justify-content: right;   
+  margin-right: 5%; */
+
+  position: absolute;       /* posiziona l’elemento rispetto al body */
+  top: max(30px, 1vmin);                /* distanza dal bordo superiore (modificabile) */
+  right: 20px;              /* distanza dal bordo destro */
+  width: 30%;               /* occupa il 30% della larghezza del viewport */
+  max-width: 400px;         /* larghezza massima, per non sforare su desktop larghi */
+  padding: 1rem;            /* spazio interno */
+  box-sizing: border-box;   /* include padding e border nella width */
+  overflow-wrap: break-word;/* forza il wrapping delle parole lunghe */
 }
 
 .home-main h2 {
@@ -20,7 +23,7 @@
 
 .home-main p {
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: normal;
   color: #ffffff;
+  overflow: auto;
 }
-

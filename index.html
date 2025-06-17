@@ -19,20 +19,27 @@
     <div class="frame_line frame_line-top"></div>
     <div class="frame_line frame_line-bottom"></div>
   </div>
-  <header class="section-title" x-init="load('project')">
+
+  <header class="section-title" x-init="load('home')">
     <h1>Il Mio Titolo</h1>
     <h2>Il mio sottotitolo</h2>
+    
     <nav class="sidebar">
       <ol>
         <li :class="{ 'is-selected': current==='home' }" @click="load('home')">
-          <div class="_dot">●</div><span class="_text">Home</span>
+          <div class="_dot">●</div>
+          <span class="_text">Home</span>
         </li>
         <li :class="{ 'is-selected': current==='project' }" @click="load('project')">
-          <div class="_dot">●</div><span class="_text">Projects</span>
+          <div class="_dot">●</div>
+          <span class="_text">Projects</span>
         </li>
       </ol>
     </nav>
   </header>
-  <div x-ref="content"></div>
+  
+  <div x-ref="content">
+    
+  </div>
 </div>
 </html>

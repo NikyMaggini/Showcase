@@ -8,7 +8,6 @@
 
 /* Titolo sezione */
 .section-title {
-  /*margin: 2rem auto 1rem auto;  /* 2rem sopra, 1rem sotto, auto = centro orizzontale */
   margin-top: 2%;
   margin-left: 3%;
   text-align: left;           /* opzionale, per centrare il testo */
@@ -38,15 +37,18 @@
   padding: 0;
   margin-top: 2%;
   margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* fa sì che i LI non si estendano in orizzontale */
 }
 
 /* Ogni voce come riga orizzontale */
 .sidebar li {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
   cursor: pointer;
   transition: color 0.2s;
+  width: max-content;      /* oppure: width: fit-content; */
 }
 
 /* Il dot (pallino) */
@@ -69,5 +71,5 @@
 }
 .sidebar li.is-selected ._text {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 1000;
 }

@@ -7,48 +7,14 @@
   --pad: max(30px, 1vmin); 
 }
 
-html, body {
-  /* margin: 0;
-  padding: 0; */
+html{
   height: 100%;
-  overflow: hidden;
   background-color: rgb(0, 0, 0);
-  font-family: sans-serif;
-  
+  font-family: sans-serif;  
+  /*overflow: hidden; /* per evitare lo scroll */
 }
 
-/* Area contenuto “statica” senza scroll esterno */
-main[x-ref="content"] {
-  position: absolute;
-  top: 60px; /* uguale all’altezza dell’header */
-  left: 0;
+[x-ref="content"]{
   width: 100%;
-  height: calc(100vh - 60px);
-  overflow: hidden; /* o auto, se vuoi scroll solo dentro main */
-  padding: 20px;    /* opzionale, per dare un po’ di respiro ai contenuti */
-}
-
-.top-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.top-content h1 {
-  margin: 0;
-  margin-bottom: 0.5em;
-  font-size: 1.5rem;
-}
-
-.video-container iframe {
-  position: relative;
-  top: 100px; left: 0px;
-  width: 560;
-  height: 315;
-  border: 0;
+  height: 100%;
 }

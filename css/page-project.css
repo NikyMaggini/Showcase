@@ -1,3 +1,4 @@
+
 .project-main {
   width: 90%;
   max-width: 1100px;
@@ -7,6 +8,7 @@
   background: rgba(255,255,255,0.3);
   border-radius: 8px;
   box-sizing: border-box;
+
 }
 
 .project-title {
@@ -17,36 +19,128 @@
   text-align: center;
 }
 
-.project-content {
+/* NOTA BENE:
+    ora gestisco tutti i video in questo modo.
+    VA FATTO ANCHE PER I TESTI. UNICO PUNTO IN CUI GESTISCO TUTTI I COMPONENTI UGUALI.
+    Vedere su quale componente unico lavorare: forse su 'ASIDE' o 'SPAN'
+*/
+.video-container iframe {
+  position: relative;
+  top: 100px; left: 0px;
+  width: 560;
+  height: 315;
+
+  flex: 2;                   /* occupa più spazio */
+  margin-top: -150px;             /* assicura che non ci siano offset */
+}
+
+.project-page-content {
   display: flex;
-  max-height: 500px;
+  margin-top: 7%;
+  max-height: 600px;
   flex-direction: column;
-  /*overflow-y: auto; /* abilita lo scroll verticale */
+  overflow-y: scroll; /* abilita lo scroll verticale */  
 }
 
 .content1{
   display: flex;
-  min-width: 100%; 
-  min-height: 400px;
-  max-height: 100px;
+  flex-direction: row;       /* affianca video e descrizione */
+  align-items: flex-start;   /* “top alignment” di tutti i figli */
+  justify-content: flex-start;
+  width: 100%;
   margin-top: 60px;
-  flex-direction: row;
-  justify-content: space-around; /* centra verticalmente il contenuto */
-  align-items: flex-start; /* centra orizzontalmente il contenuto */
-  /*overflow-y: scroll; /* abilita lo scroll verticale */
+  min-width: 400px;
 }
 
 .video-container{
-  flex: 2;
-  margin-top: -8%;
-  
+  margin-bottom: 100px;             /* assicura che non ci siano offset */
+
 }
 
 .media-description {
-  /* flex: 1 1 auto; */
-  flex: none;
-  width: 45%;
-  max-height: 500px;
+  flex: none;                   /* occupa il resto */
   margin-top: 0;
-  overflow-y: scroll;
+  width: 45%;
+  max-height: 500px;         /* opzionale, se vuoi limitare l’altezza */
+  overflow-y: auto;          /* scroll solo sulla descrizione */
+  text-align: center;
+}
+
+
+.content2{
+  display: flex;
+  flex-direction: row;       /* affianca video e descrizione */
+  align-items: flex-start;   /* “top alignment” di tutti i figli */
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 60px;
+  min-width: 400px;
+}
+
+
+.media-description2{
+  flex: none;                   /* occupa il resto */
+  margin-top: 0;
+  width: 45%;
+  max-height: 500px;         /* opzionale, se vuoi limitare l’altezza */
+  overflow-y: auto;          /* scroll solo sulla descrizione */
+  text-align: center;
+}
+
+.content3{
+  display: flex;
+  flex-direction: row;       /* affianca video e descrizione */
+  align-items: flex-start;   /* “top alignment” di tutti i figli */
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 60px;
+  min-width: 400px;
+}
+
+.media-description3{
+  flex: none;                   /* occupa il resto */
+  margin-top: 0;
+  width: 45%;
+  max-height: 500px;         /* opzionale, se vuoi limitare l’altezza */
+  overflow-y: auto;          /* scroll solo sulla descrizione */
+  text-align: center;
+}
+
+.content4{
+  display: flex;
+  flex-direction: row;       /* affianca video e descrizione */
+  align-items: flex-start;   /* “top alignment” di tutti i figli */
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 60px;
+  min-width: 400px;
+}
+
+
+.media-description4{
+  flex: none;                   /* occupa il resto */
+  margin-top: 0;
+  width: 45%;
+  max-height: 500px;         /* opzionale, se vuoi limitare l’altezza */
+  overflow-y: auto;          /* scroll solo sulla descrizione */
+  text-align: center;
+}
+
+.content5{
+  display: flex;
+  flex-direction: row;       /* affianca video e descrizione */
+  align-items: flex-start;   /* “top alignment” di tutti i figli */
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 60px;
+  min-width: 400px;
+}
+
+.media-description5{
+  flex: none;                   /* occupa il resto */
+  margin-top: 0;
+  width: 45%;
+  max-height: 500px;         /* opzionale, se vuoi limitare l’altezza */
+  overflow-y: auto;          /* scroll solo sulla descrizione */
+  text-align: center;
 }
