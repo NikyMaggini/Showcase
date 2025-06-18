@@ -5,16 +5,15 @@
 */
 :root {
   --pad: max(30px, 1vmin); 
+  --selectedButton: #c3bfbf;
+
 }
 
-html{
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-  font-family: sans-serif;  
-  /*overflow: hidden; /* per evitare lo scroll */
+#buttons-content li.is-selected ._dot {
+  color: var(--selectedButton);
 }
 
-[x-ref="content"]{
-  width: 100%;
-  height: 100%;
+#buttons-content li.is-selected ._text {
+  color: var(--selectedButton);
+  font-weight: 1000;
 }
