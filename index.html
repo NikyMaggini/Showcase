@@ -5,41 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buonasera salve</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/frame-line.css">
-  <link rel="stylesheet" href="css/top-content-style.css">
-  <link rel="stylesheet" href="css/page-home.css">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> <!-- utilizzato per o pulsanti -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/app.js"></script>
 </head>
 
-<div x-data="app()" x-init="init()">
-  <div ID="Frame" class="frame">
-    <div class="frame_line frame_line-left"></div>
-    <div class="frame_line frame_line-right"></div>
-    <div class="frame_line frame_line-top"></div>
-    <div class="frame_line frame_line-bottom"></div>
-  </div>
+<body class="font-sans antialiased bg-slate-900 text-slate-400 ">
+  <div x-data="app()" x-init="init()"> 
+    <div id= "box-main" class="relative lg:flex lg:max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:top-0 lg:w-[100%] p-6 ">
+      
+      <div class="frames">
+        <div id="frame_line-left" class="absolute w-1 bg-white top-6 bottom-6"></div>
+        <div id="frame_line-right" class="absolute w-1 bg-white top-6 bottom-6 right-6 "></div>
+        <div id="frame_line-top" class="absolute h-1 bg-white right-6 left-6 "></div>
+        <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6"></div>
+      </div>
+    
+        <header id="top-content" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-16 ">
+        
+          <nav id="title" class="space-y-5" >
+            <h1 class="text-7xl font-normal text-white tracking-tight">Il Mio Titolo</h1>
+            <h2 class="text-2xl font-light text-white ">Il mio sottotitolo</h2>
+          </nav>
 
-  <header class="section-title" x-init="load('home')">
-    <h1>Il Mio Titolo</h1>
-    <h2>Il mio sottotitolo</h2>
-    
-    <nav class="sidebar">
-      <ol>
-        <li :class="{ 'is-selected': current==='home' }" @click="load('home')">
-          <div class="_dot">●</div>
-          <span class="_text">Home</span>
-        </li>
-        <li :class="{ 'is-selected': current==='project' }" @click="load('project')">
-          <div class="_dot">●</div>
-          <span class="_text">Projects</span>
-        </li>
-      </ol>
-    </nav>
-  </header>
-  
-  <div x-ref="content">
-    
+          <header class="section-buttons pt-10 pl-12 z-10" x-init="load('home')"> 
+            <nav id="buttons-content">
+              <ol class="flex flex-col space-y-4">
+                <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3 ">
+                  <div class="_dot">●</div>
+                  <span class="_text">Home</span>
+                </li>
+                <li :class="{ 'is-selected': current==='project' }" @click="load('project')" class="cursor-pointer flex gap-3">
+                  <div class="_dot">●</div><span class="_text">Projects</span>
+                </li>
+              </ol>
+            </nav>
+            </header>
+        </header>       
+          
+          <main class="lg:w-[65%] lg:h-[100%] overflow-hidden h-screen">
+            <div x-ref="content">
+            </div>   
+          </main>
+    </div>
   </div>
-</div>
+</body>
 </html>
