@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,44 +11,47 @@
   <script src="js/app.js"></script>
 </head>
 
+
+
 <body class="font-sans antialiased bg-slate-900 text-slate-400 ">
-  <div x-data="app()" x-init="init()"> 
-    <div id= "box-main" class="relative lg:flex lg:max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:top-0 lg:w-[100%] p-6 ">
-      
-      <div class="frames">
+  <div x-data="app()" x-init="init()">
+    <div id="box-main" class="relative lg:flex max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:w-[100%] p-6 ">
+
+      <div class="frames ">
         <div id="frame_line-left" class="absolute w-1 bg-white top-6 bottom-6"></div>
         <div id="frame_line-right" class="absolute w-1 bg-white top-6 bottom-6 right-6 "></div>
         <div id="frame_line-top" class="absolute h-1 bg-white right-6 left-6 "></div>
-        <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6"></div>
+        <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6 "></div>
       </div>
-    
-        <header id="top-content" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-16 ">
-        
-          <nav id="title" class="space-y-5" >
-            <h1 class="text-7xl font-normal text-white tracking-tight">Il Mio Titolo</h1>
-            <h2 class="text-2xl font-light text-white ">Il mio sottotitolo</h2>
-          </nav>
 
-          <header class="section-buttons pt-10 pl-12 z-10" x-init="load('home')"> 
-            <nav id="buttons-content">
-              <ol class="flex flex-col space-y-4">
-                <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3 ">
-                  <div class="_dot">●</div>
-                  <span class="_text">Home</span>
-                </li>
-                <li :class="{ 'is-selected': current==='project' }" @click="load('project')" class="cursor-pointer flex gap-3">
-                  <div class="_dot">●</div><span class="_text">Projects</span>
-                </li>
-              </ol>
-            </nav>
-            </header>
-        </header>       
-          
-          <main class="lg:w-[65%] lg:h-[100%] overflow-hidden h-screen">
-            <div x-ref="content">
-            </div>   
-          </main>
+      <header id="top-content"
+        class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-16 ">
+
+        <nav id="title" class="space-y-5">
+          <h1 class="text-7xl font-normal text-white tracking-tight">Il Mio Titolo</h1>
+          <h2 class="text-2xl font-light text-white ">Il mio sottotitolo</h2>
+        </nav>
+        <header class="section-buttons pt-10 pl-12 z-10" x-init="load('home')">
+          <nav id="buttons-content">
+            <ol class="flex flex-col space-y-4">
+              <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3 ">
+                <div class="_dot">●</div>
+                <span class="_text">Home</span>
+              </li>
+              <li :class="{ 'is-selected': current==='project' }" @click="load('project')"
+                class="cursor-pointer flex gap-3">
+                <div class="_dot">●</div><span class="_text">Projects</span>
+              </li>
+            </ol>
+          </nav>
+        </header>
+      </header>
+      <main class="flex-1 overflow-hidden">
+        <div x-ref="content" class="">
+        </div>
+      </main>
     </div>
   </div>
 </body>
+
 </html>

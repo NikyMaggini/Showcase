@@ -6,7 +6,6 @@
 :root {
   --pad: max(30px, 1vmin); 
   --selectedButton: #c3bfbf;
-
 }
 
 #buttons-content li.is-selected ._dot {
