@@ -18,3 +18,10 @@ utilizzato Tailwind css per semplificare e velocizzare la creazione di interfacc
 
 
 
+# SEZIONE contatti
+
+creare pulsanti che al click cambiano posizione casuale sullo schermo
+
+
+#PER PROGETTI IN C++
+caricare il progeto su github, fare un video di qualche minuto per mostrarlo ed aggiungere alla descrizione il link github + (opzionale) fornire un eseguibiles

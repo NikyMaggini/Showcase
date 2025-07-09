@@ -10,9 +10,39 @@
 
 #buttons-content li.is-selected ._dot {
   color: var(--selectedButton);
+  transform: translate(20px, 0px);
+
 }
 
 #buttons-content li.is-selected ._text {
   color: var(--selectedButton);
   font-weight: 1000;
+  transform: translate(20px, 0px);
 }
+
+.moving-link {
+  position: absolute;
+  cursor: pointer;
+  font-size: 50px;
+  color: rgb(119, 124, 121);
+}
+
+.moving-link :hover {
+  color: rgb(3, 72, 20);
+}
+
+.btn-pulsante {
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.btn-pulsante span {
+  display: inline-block;
+  animation: pulsate 1.4s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.3); }
+}
+
