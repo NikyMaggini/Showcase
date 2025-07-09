@@ -5,7 +5,7 @@
   right: var(--pad);
   top: var(--pad);
   bottom: var(--pad);
-  mix-blend-mode: difference;
+  /* mix-blend-mode: difference; */
   pointer-events: none;
 }
 
