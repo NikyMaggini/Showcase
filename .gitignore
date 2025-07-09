@@ -49,6 +49,7 @@ Gemfile.lock
 # Asset di backup
 # --------------------
 *.zip
+!docs/*.zip
 
 # --------------------
 # Vari
