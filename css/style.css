@@ -5,50 +5,40 @@
 */
 :root {
   --pad: max(30px, 1vmin); 
+  --selectedButton: #c3bfbf;
 }
 
-html, body {
-  /* margin: 0;
-  padding: 0; */
-  height: 100%;
-  overflow: hidden;
-  background-color: rgb(0, 0, 0);
-  font-family: sans-serif;
-  
+#buttons-content li.is-selected ._dot {
+  color: var(--selectedButton);
+  transform: translate(20px, 0px);
+
 }
 
-/* Area contenuto “statica” senza scroll esterno */
-main[x-ref="content"] {
+#buttons-content li.is-selected ._text {
+  color: var(--selectedButton);
+  font-weight: 1000;
+  transform: translate(20px, 0px);
+}
+
+.moving-link {
   position: absolute;
-  top: 60px; /* uguale all’altezza dell’header */
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 60px);
-  overflow: hidden; /* o auto, se vuoi scroll solo dentro main */
-  padding: 20px;    /* opzionale, per dare un po’ di respiro ai contenuti */
+  cursor: pointer;
+  font-size: 50px;
+  color: rgb(119, 124, 121);
 }
 
-.top-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.btn-pulsante {
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.btn-pulsante span {
+  display: inline-block;
+  animation: pulsate 1.4s ease-in-out infinite;
 }
 
-.top-content h1 {
-  margin: 0;
-  margin-bottom: 0.5em;
-  font-size: 1.5rem;
+@keyframes pulsate {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.3); }
 }
 
-.video-container iframe {
-  position: relative;
-  top: 100px; left: 0px;
-  width: 560;
-  height: 315;
-  border: 0;
-}
