@@ -27,6 +27,10 @@
   color: rgb(119, 124, 121);
 }
 
+.moving-link :hover {
+  color: rgb(28, 59, 39);
+}
+
 .btn-pulsante {
   border: none;
   padding: 12px 24px;
