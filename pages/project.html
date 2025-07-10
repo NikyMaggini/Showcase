@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Sezione Progetti</title>
   <link rel="stylesheet" href="css/page-project.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+
 </head>
 
 <body>
@@ -26,9 +29,15 @@
               <br>
               Videogioco sviluppato per esercitarmi con il linguaggio c++, ho utilizzato la libreria SFML.
               <br><br>
-              Il codice completo è disponibile al seguente link: <button class="underline" data-url="https://github.com/NikyMaggini"><span>github.com/NikyMaggini</span></button>
+              Il codice completo è disponibile al seguente link: 
+              <button class="salve project-links cursor-pointer underline" data-url="https://github.com/NikyMaggini/snake-classic-cpp.git"
+              @click="window.open($event.currentTarget.dataset.url, '_blank')">
+                <span>github.com/NikyMaggini/snake-classic-cpp ↗</span></button>
               <br><br>
-              Download del file eseguibile: <button class="underline" data-url="docs/release-snake-classic-cpp.zip"><span>snake-classic-cpp</span></button>            
+              Download del file eseguibile: 
+              <button class="project-links cursor-pointer underline" data-url="docs/release-snake-classic-cpp.zip"
+              @click="window.open($event.currentTarget.dataset.url, '_blank')">
+                <span>snake-classic-cpp ↘</span></button>            
           </span>
       </aside>
     </section>
@@ -62,7 +71,7 @@
       <iframe 
         class="w-[50%]"
         width="480" height="320"
-        src="D:\GitHub\Showcase\docs\snake-classic-cpp.mp4"
+        src="https://www.youtube.com/embed/XLRLgcilpOY"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
