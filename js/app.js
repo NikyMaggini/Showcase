@@ -1,3 +1,8 @@
+const state = {
+  movingButtonisEnabled: true,
+  setFirstPos: true,
+};
+
 window.app = function () {
   return {
     current: null,
@@ -36,6 +41,17 @@ window.app = function () {
         return { x, y };
       }
 
+      // checkbox
+      const el = document.getElementById("contatti-check");
+      if (el) {
+        el.addEventListener("change", (e) => {
+          console.log("Checkbox è:", e.target.checked ? "attivo" : "spento");
+          state.movingButtonisEnabled = state.movingButtonisEnabled
+            ? false
+            : true;
+        });
+      }
+
       // assegna posizioni iniziali a tutti i link
       links.forEach((link) => {
         link.style.position = "absolute";
@@ -61,12 +77,14 @@ window.app = function () {
             }
           }
 
-          // riposiziona tutti i link
-          links.forEach((l) => {
-            const { x, y } = randomInSquare();
-            l.style.left = `${x}px`;
-            l.style.top = `${y}px`;
-          });
+          if (state.movingButtonisEnabled) {
+            // riposiziona tutti i link
+            links.forEach((l) => {
+              const { x, y } = randomInSquare();
+              l.style.left = `${x}px`;
+              l.style.top = `${y}px`;
+            });
+          }
         });
       });
     },
