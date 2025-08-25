@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>3D Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
+</head>
+
+
+<body>
+    <section id="main-viewer3d" aria-label="3D viewer" class="w-full h-screen">
+        <div id="three-container" class="w-full h-full overflow-hidden"> 
+            <iframe src="/build3dgame/" title="My 3D Game"
+                class="w-full h-full block" allow="gamepad *; xr-spatial-tracking; fullscreen"> 
+            </iframe> 
+        </div>
+    </section>
+</body>
+
+<!-- <body class="m-0">
+    <section id="main-viewer3d" class="w-full h-[100vh] m-0 p-0">
+      <div id="three-container" class="w-full h-full overflow-hidden">
+        <iframe
+          src="/build3dgame/"
+          title="My 3D Game"
+          class="w-full h-full block"
+          allow="gamepad *; xr-spatial-tracking; fullscreen">
+        </iframe>
+      </div>
+    </section>
+  </body> -->
+
+</html>
