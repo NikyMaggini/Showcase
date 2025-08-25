@@ -4,8 +4,13 @@ import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
 // Pin three & pass as dep to fiber/drei so they all share the same React/three
 import * as THREE from "https://esm.sh/three@0.161.0";
 import { Canvas } from "https://esm.sh/@react-three/fiber@8.15.14?deps=react@18.2.0,react-dom@18.2.0,three@0.161.0";
-import { OrbitControls, useGLTF, Bounds } from "https://esm.sh/@react-three/drei@9.105.6?deps=react@18.2.0,react-dom@18.2.0,three@0.161.0,@react-three/fiber@8.15.14";
+import {
+  OrbitControls,
+  useGLTF,
+  Bounds,
+} from "https://esm.sh/@react-three/drei@9.105.6?deps=react@18.2.0,react-dom@18.2.0,three@0.161.0,@react-three/fiber@8.15.14";
 
+// utlizzato al posto di <Canvas>...</Canvas>, massima compatibilità con gli ambienti
 const h = React.createElement;
 
 // helpers
@@ -14,17 +19,33 @@ const parseVec3 = (str, def) => {
   const p = String(str).split(",").map(Number);
   return [p[0] ?? def[0], p[1] ?? def[1], p[2] ?? def[2]];
 };
-const parseOptBool = (v) => (v === undefined ? undefined : (v === "" || v === "true" || v === true));
-const parseOptNum  = (v) => (v === undefined ? undefined : Number(v));
-const parseOptDeg  = (v) => (v === undefined ? undefined : Number(v) * Math.PI / 180); // gradi → radianti für *Angle props
+const parseOptBool = (v) =>
+  v === undefined ? undefined : v === "" || v === "true" || v === true;
+const parseOptNum = (v) => (v === undefined ? undefined : Number(v));
+const parseOptDeg = (v) =>
+  v === undefined ? undefined : (Number(v) * Math.PI) / 180; // gradi → radianti für *Angle props
 
-function GLTFModel({ url, scale = [1,1,1], rotation = [0,0,0], position = [0,0,0] }) {
+function GLTFModel({
+  url,
+  scale = [1, 1, 1],
+  rotation = [0, 0, 0],
+  position = [0, 0, 0],
+}) {
   const { scene } = useGLTF(url, true);
-  return h("primitive", { object: scene, scale, rotation, position, dispose: null });
+  return h("primitive", {
+    object: scene,
+    scale,
+    rotation,
+    position,
+    dispose: null,
+  });
 }
 
 function Widget({
-  url, scale, rotation, position,
+  url,
+  scale,
+  rotation,
+  position,
   // Camera
   zoom = 3,
   fov = 45,
@@ -37,22 +58,31 @@ function Widget({
   enableRotate = true,
   autoRotate = true,
   autoRotateSpeed = 2.0,
-  minDistance, maxDistance,
-  minPolarAngle, maxPolarAngle,
-  minAzimuthAngle, maxAzimuthAngle,
-  target
+  minDistance,
+  maxDistance,
+  minPolarAngle,
+  maxPolarAngle,
+  minAzimuthAngle,
+  maxAzimuthAngle,
+  target,
 }) {
   const camPos = cameraPosition ?? [0, 0, Number(zoom)];
-
+  
   return h(
     Canvas,
-    { dpr: [1, 2], camera: { position: camPos, fov }, style: { width: "100%", height: "100%" } },
+    {
+      dpr: [1, 2],
+      camera: { position: camPos, fov },
+      style: { width: "100%", height: "100%" },
+    },
     h("ambientLight", { intensity: 5 }),
     h("directionalLight", { position: [2, 2, 3], intensity: 1.2 }),
     h(
       Suspense,
       { fallback: null },
-      h(Bounds, { fit: true, clip: true, observe: false, margin: 1.1 },
+      h(
+        Bounds,
+        { fit: true, clip: true, observe: false, margin: 1.1 },
         h(GLTFModel, { url, scale, rotation, position })
       )
     ),
@@ -69,7 +99,7 @@ function Widget({
       maxPolarAngle,
       minAzimuthAngle,
       maxAzimuthAngle,
-      target
+      target,
     })
   );
 }
@@ -105,7 +135,9 @@ function mountWidget(el) {
   const maxAzimuthAngle = parseOptDeg(el.dataset.maxAzimuthAngle);
   const target = parseVec3(el.dataset.target, undefined);
 
-  try { useGLTF.preload(url); } catch {}
+  try {
+    useGLTF.preload(url);
+  } catch {}
 
   const root = createRoot(el);
   const ro = new ResizeObserver(() => {});
@@ -113,22 +145,38 @@ function mountWidget(el) {
 
   root.render(
     h(Widget, {
-      url, scale, rotation, position,
-      zoom, fov, cameraPosition,
-      fit, clip, observe, margin,
-      enableZoom, enablePan, enableRotate,
-      autoRotate, autoRotateSpeed,
-      minDistance, maxDistance,
-      minPolarAngle, maxPolarAngle,
-      minAzimuthAngle, maxAzimuthAngle,
-      target
+      url,
+      scale,
+      rotation,
+      position,
+      zoom,
+      fov,
+      cameraPosition,
+      fit,
+      clip,
+      observe,
+      margin,
+      enableZoom,
+      enablePan,
+      enableRotate,
+      autoRotate,
+      autoRotateSpeed,
+      minDistance,
+      maxDistance,
+      minPolarAngle,
+      maxPolarAngle,
+      minAzimuthAngle,
+      maxAzimuthAngle,
+      target,
     })
   );
   el.dataset.mounted = "true";
 }
 
 function init() {
-  document.querySelectorAll(".r3f-widget:not([data-mounted])").forEach(mountWidget);
+  document
+    .querySelectorAll(".r3f-widget:not([data-mounted])")
+    .forEach(mountWidget);
 }
 
 if (document.readyState === "loading") {
@@ -137,9 +185,7 @@ if (document.readyState === "loading") {
   init();
 }
 document.addEventListener("r3f:mount", init);
-new MutationObserver(() => init()).observe(document.body, { childList: true, subtree: true });
-
-// Debug helpers (optional)
-// console.log("React version:", React.version);
-// import * as ReactDomClient from "https://esm.sh/react-dom@18.2.0/client";
-// console.log("ReactDOM client keys:", Object.keys(ReactDomClient));
+new MutationObserver(() => init()).observe(document.body, {
+  childList: true,
+  subtree: true,
+});
