@@ -2,6 +2,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Suspense, useRef } from 'react'
 import * as THREE from 'three'
+import NeuralNetwork from './NeuralNetwork'
 
 function SpinningBox(props) {
   const ref = useRef()
