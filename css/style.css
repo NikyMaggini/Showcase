@@ -5,7 +5,7 @@
 */
 :root {
   --pad: max(30px, 1vmin); 
-  --selectedButton: #c3bfbf;
+  --selectedButton: #ffffff;
 }
 
 #buttons-content li.is-selected ._dot {
@@ -24,7 +24,7 @@
   position: absolute;
   cursor: pointer;
   font-size: 40px;
-  color: rgb(119, 124, 121);
+  color: rgb(255, 255, 255);
 }
 
 .moving-link :hover {

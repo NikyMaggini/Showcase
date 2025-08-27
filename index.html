@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Showcase Niky Maggini</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/app.js" defer></script>
-    <script type="module" src="./js/r3f-widgets.locked.js?v=6"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script>
-      tailwind = window.tailwind || {};
-      tailwind.config = {
-        theme: {
-          container: { center: true, padding: { DEFAULT: '1rem', sm: '1.5rem', lg: '2rem' } },
-          extend: { screens: { xs: '475px' } }
-        }
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showcase - Niky Maggini</title>
 
-    
-  </head>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/app.js" defer></script>
+  <script type="module" src="./js/r3f-widgets.locked.js?v=6"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script>
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        container: { center: true, padding: { DEFAULT: '1rem', sm: '1.5rem', lg: '2rem' } },
+        extend: { screens: { xs: '475px' } }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-  <body class="font-sans antialiased bg-slate-900 text-slate-400">
-    <div x-data="app()" x-init="init()">
-      <div id="box-main" class="relative lg:flex max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:w-[100%] p-6">
-        <div class="frames">
-          <div id="frame_line-left" class="absolute w-1 bg-white top-6 bottom-6"></div>
-          <div id="frame_line-right" class="absolute w-1 bg-white top-6 bottom-6 right-6"></div>
-          <div id="frame_line-top" class="absolute h-1 bg-white right-6 left-6"></div>
-          <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6"></div>
-        </div>
-
-        <header id="top-content" class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-16">
-          <nav id="title" class="space-y-5">
-            <h1 class="text-7xl font-serif text-white tracking-tight">Niky Maggini</h1>
-            <h2 class="text-2xl font-light text-white pl-[1rem]">Sviluppatore</h2>
-          </nav>
-
-          <header class="section-buttons pt-10 pl-[1rem] z-10 w-fit" x-init="load('home')">
-            <nav id="buttons-content">
-              <ol class="flex flex-col space-y-4">
-                <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3">
-                  <div class="_dot">●</div><span class="_text">Home</span>
-                </li>
-                <li :class="{ 'is-selected': current==='info' }" @click="load('info')" class="cursor-pointer flex gap-3">
-                  <div class="_dot">●</div><span class="_text">Info</span>
-                </li>
-                <li :class="{ 'is-selected': current==='project' }" @click="load('project')" class="cursor-pointer flex gap-3">
-                  <div class="_dot">●</div><span class="_text">Projects</span>
-                </li>
-                <li :class="{ 'is-selected': current==='contatti' }"  class=" flex gap-3">
-                  <div class="_dot">●</div><span class="_text cursor-pointer" @click="load('contatti')">Contatti</span>
-                  <!-- CHECKBOX -->
-                  <div x-cloak x-show="current === 'contatti'" x-transition.opacity
-                       class="mt-7 ml-5 flex items-center gap-3 text-sm">
-                    <label class="inline-flex items-center gap-2" @click.stop>
-                      <input type="checkbox" id="contatti-check" x-model="contattiChecked" class="accent-black/80">
-                      <span>Disabilita movimento pulsanti.</span>
-                    </label>
-                  </div>
-                </li>
-              </ol>
-            </nav>
-          </header>
-        </header>
-
-        <main class="flex-1 overflow-hidden">
-          <div x-ref="content"></div>
-        </main>
+<body class="font-sans antialiased bg-slate-900 text-slate-400">
+  <div x-data="app()" x-init="init()">
+    <div id="box-main"
+      class="relative lg:flex max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:w-[100%] p-6">
+      <div class="frames">
+        <div id="frame_line-left" class="absolute w-1 bg-white top-6 bottom-6"></div>
+        <div id="frame_line-right" class="absolute w-1 bg-white top-6 bottom-6 right-6"></div>
+        <div id="frame_line-top" class="absolute h-1 bg-white right-6 left-6"></div>
+        <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6"></div>
       </div>
+
+      <header id="top-content"
+        class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-16">
+        <nav id="title" class="space-y-5">
+          <h1 class="text-7xl font-serif text-white tracking-tight">Niky Maggini</h1>
+          <h2 class="text-2xl font-light text-white pl-[1rem]">Sviluppatore</h2>
+        </nav>
+
+        <header class="section-buttons pt-10 pl-[1rem] z-10 w-fit" x-init="load('home')">
+          <nav id="buttons-content">
+            <ol class="flex flex-col space-y-4">
+              <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3">
+                <div class="_dot">●</div><span class="_text">Home</span>
+              </li>
+              <li :class="{ 'is-selected': current==='info' }" @click="load('info')" class="cursor-pointer flex gap-3">
+                <div class="_dot">●</div><span class="_text">Info</span>
+              </li>
+              <li :class="{ 'is-selected': current==='project' }" @click="load('project')"
+                class="cursor-pointer flex gap-3">
+                <div class="_dot">●</div><span class="_text">Projects</span>
+              </li>
+
+              <!-- <li :class="{ 'is-selected': current==='3dgame' }" @click="load('3dgame')"
+                class="cursor-pointer flex gap-3">
+                <div class="_dot">●</div><span class="_text">3D Game</span>
+              </li> -->
+
+              <li :class="{ 'is-selected': current==='contatti' }" class=" flex gap-3">
+                <div class="_dot">●</div><span class="_text cursor-pointer" @click="load('contatti')">Contatti</span>
+                <!-- CHECKBOX -->
+                <div x-cloak x-show="current === 'contatti'" x-transition.opacity style="display:none"
+                  class="mt-7 ml-5 flex items-center gap-3 text-sm">
+                  <label class="inline-flex items-center gap-2" @click.stop>
+                    <input type="checkbox" id="contatti-check" x-model="contattiChecked" class="accent-black/80">
+                    <span>Disabilita movimento contatti.</span>
+                  </label>
+                </div>
+              </li>
+            </ol>
+          </nav>
+        </header>
+      </header>
+
+
+      <section id="main-viewer3d" aria-label="3D viewer" class="pointer-events-none fixed inset-0 z-[-10] left-[-400px]">
+        <div id="three-container" class="absolute inset-0 overflow-hidden">
+          <iframe src="build3dgame/neural.html" title="3D" class="w-full h-full block"
+            allow="gamepad *; xr-spatial-tracking; fullscreen">
+          </iframe>
+        </div>
+      </section>
+
+
+      <main class="flex-1 overflow-hidden">
+        <div x-ref="content"></div>
+      </main>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
