@@ -32,7 +32,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: 'index.html', // entry HTML in root/
-        neural: 'neural.html',   // entry HTML in game/
+        neural: 'neural.html',   // entry HTML /
       },
     },
   },

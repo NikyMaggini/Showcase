@@ -1,4 +1,4 @@
-#main-viewer3d {
-    display: none !important;
-  }
-  
+#three-container{
+  transform: scale(0.8);
+  transform-origin: left;
+}

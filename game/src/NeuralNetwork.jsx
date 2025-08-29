@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { AdditiveBlending, Vector3 } from 'three'
 import { useFrame } from '@react-three/fiber'
+import { Stats } from '@react-three/drei'
 
 export default function NeuralNetwork() {
   const groupRef = useRef()
@@ -137,6 +138,7 @@ export default function NeuralNetwork() {
         </bufferGeometry>
         <lineBasicMaterial vertexColors={true} blending={AdditiveBlending} transparent={true} opacity={0.3}/>
       </lineSegments>
+      <Stats />
     </group>
   )
 }
