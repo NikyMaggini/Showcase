@@ -1,8 +1,9 @@
-#three-container{
+/* #three-container{
   transform: scale(0.8);
-  transform-origin: left;
-}
-
-/* #main-viewer3d{
-  opacity: 0 !important;
+  transform-origin: left; 
+  opacity: 0;
 } */
+
+#main-viewer3d{
+  opacity: 0 !important;
+}
