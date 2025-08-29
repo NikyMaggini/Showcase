@@ -2,3 +2,7 @@
   transform: scale(0.8);
   transform-origin: left;
 }
+
+/* #main-viewer3d{
+  opacity: 0 !important;
+} */
