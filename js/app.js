@@ -70,7 +70,7 @@ window.app = function () {
           if (link.id === "copyEmailBtn") {
             try {
               // copia in clipboard
-              await navigator.clipboard.writeText("tuo.nome@esempio.com");
+              await navigator.clipboard.writeText("niky.maggini@gmail.com");
               alert("📋 Email copiata negli appunti!");
             } catch {
               console.warn("Copia non riuscita");
