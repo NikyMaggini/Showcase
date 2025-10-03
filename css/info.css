@@ -7,3 +7,21 @@
 #main-viewer3d{
   opacity: 0 !important;
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+    .container {
+        padding: 10px;
+    }
+}
