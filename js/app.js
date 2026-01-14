@@ -7,7 +7,7 @@ window.app = function () {
   return {
     current: null,
     init() {
-      this.load("home");
+      this.load("project");
     },
     async load(page) {
       this.current = page;
