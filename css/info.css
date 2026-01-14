@@ -1,4 +1,27 @@
-#three-container{
+/* #three-container{
   transform: scale(0.8);
-  transform-origin: left;
+  transform-origin: left; 
+  opacity: 0;
+} */
+
+#main-viewer3d{
+  opacity: 0 !important;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+    .container {
+        padding: 10px;
+    }
 }
