@@ -2,23 +2,474 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niky Maggini - Showcase</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/app.js" defer></script>
-  <script type="module" src="./js/r3f-widgets.locked.js?v=6"></script>
-  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <script>
-    tailwind = window.tailwind || {};
-    tailwind.config = {
-      theme: {
-        container: { center: true, padding: { DEFAULT: '1rem', sm: '1.5rem', lg: '2rem' } },
-        extend: { screens: { xs: '475px' } }
+  <title>Niky Maggini — Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --bg: #0a0b14;
+      --bg-light: #111225;
+      --text: #e2e4f0;
+      --muted: #8a8da0;
+      --a1: #6c63ff;
+      --a2: #00d4aa;
+      --a3: #c06cf0;
+      --grad: linear-gradient(135deg, var(--a2), var(--a1), var(--a3))
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(10, 11, 20, .8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .3s
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: .3s
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 120px 24px 80px
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 212, 170, .15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: f1 8s ease-in-out infinite
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      right: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(192, 108, 240, .12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: f2 10s ease-in-out infinite
+    }
+
+    @keyframes f1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
       }
-    };
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+      50% {
+        transform: translate(30px, -20px)
+      }
+    }
+
+    @keyframes f2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(-20px, 30px)
+      }
+    }
+
+    .hero-c {
+      position: relative;
+      z-index: 1;
+      max-width: 700px
+    }
+
+    .hero-c .greet {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 16px
+    }
+
+    .hero-c h1 {
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero-c .sub {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .hero-c .desc {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 550px;
+      margin: 0 auto 36px;
+      line-height: 1.8
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--grad);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: transform .3s, box-shadow .3s;
+      box-shadow: 0 4px 24px rgba(108, 99, 255, .3)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(108, 99, 255, .45)
+    }
+
+    /* ── Sections ── */
+    .sec {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .sec-tag {
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--a2);
+      margin-bottom: 12px
+    }
+
+    .sec h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 48px;
+      letter-spacing: -.5px
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 700px
+    }
+
+    /* ── Timeline ── */
+    .tl-item {
+      display: flex;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .tl-item:last-child {
+      border-bottom: none
+    }
+
+    .tl-date {
+      min-width: 140px;
+      font-size: 13px;
+      color: var(--muted);
+      padding-top: 4px
+    }
+
+    .tl-c h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    .tl-c .co {
+      color: var(--a2);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px
+    }
+
+    .tl-c p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7
+    }
+
+    /* ── Projects ── */
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px
+    }
+
+    .pcard {
+      background: var(--bg-light);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s, border-color .3s, box-shadow .3s
+    }
+
+    .pcard:hover {
+      transform: translateY(-4px);
+      border-color: rgba(108, 99, 255, .3);
+      box-shadow: 0 8px 32px rgba(108, 99, 255, .1)
+    }
+
+    .pcard-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      position: relative;
+      overflow: hidden
+    }
+
+    .pcard-video video,
+    .pcard-video iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border: none
+    }
+
+    .pcard-body {
+      padding: 24px 28px 28px
+    }
+
+    .pcard h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px
+    }
+
+    .pcard h3 a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    .pcard h3 a:hover {
+      color: var(--a2)
+    }
+
+    .pcard p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .tags span {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--a1);
+      background: rgba(108, 99, 255, .1);
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(108, 99, 255, .2)
+    }
+
+    /* ── Contact ── */
+    .clinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .clink {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--bg-light);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color .3s, transform .3s
+    }
+
+    .clink:hover {
+      border-color: rgba(108, 99, 255, .4);
+      transform: translateY(-2px)
+    }
+
+    .clink svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--a2)
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, .05)
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .pgrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10, 11, 20, .95);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, .05)
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .tl-item {
+        flex-direction: column;
+        gap: 8px
+      }
+
+      .tl-date {
+        min-width: auto
+      }
+
+      .sec {
+        padding: 60px 20px
+      }
+
+      .sec h2 {
+        font-size: 28px
+      }
+
+      .pgrid {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
 </head>
 
 <body class="font-sans antialiased bg-slate-900 text-slate-400 overflow-x-hidden">
@@ -74,12 +525,262 @@
             allow="gamepad *; xr-spatial-tracking; fullscreen"></iframe>
         </div>
       </section>
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
+<!-- ======================================================================================================================================================================================================================================== -->
 
-      <main class="flex-1 overflow-hidden">
-        <div x-ref="content"></div>
-      </main>
+
+<body>
+
+  <nav>
+    <div class="logo">Niky Maggini</div>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Chi sono</a></li>
+      <li><a href="#experience">Esperienza</a></li>
+      <li><a href="#projects">Progetti</a></li>
+      <li><a href="#contact">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-c">
+      <!-- <p class="greet">👋 Hey there, I'm</p> -->
+      <h1>Niky Maggini</h1>
+      <p class="sub">Costruisco software con un approccio pratico e adattabile. In questi anni ho lavorato su progetti
+        molto diversi tra loro — simulatori industriali, applicazioni VR/AR, visualizzatori 3D, tool interni,
+        automazione di pipeline — imparando a muovermi tra tecnologie e contesti differenti. Il mio punto di forza
+        principale resta Unreal Engine e C++, ma mi trovo a mio agio ogni volta che c'è un problema da risolvere e
+        qualcosa di nuovo da capire.</p>
+      <p class="desc">Automatizzo processi, creo soluzioni intelligenti e trasformo idee in prodotti digitali funzionali
+        e performanti.</p>
+      <a href="#projects" class="btn">Explore My Work 🚀</a>
     </div>
-  </div>
+  </section>
+
+  <section class="sec" id="about">
+    <p class="sec-tag">Chi sono</p>
+    <h2>Chi sono</h2>
+    <p class="about-text">Sviluppatore software, background in programmazione multipiattaforma, esperienza in
+      automazione dei processi di build, delivery e deployment su ambienti Windows, macOS, Android e iOS.
+      Competente nell'utilizzo di motori di gioco come Unreal Engine e Unity, e di strumenti per il deployment
+      automatizzato come Jenkins e Azure Storage.
+      Familiarità anche con linguaggi di scripting (es. Python, JavaScript)) per tool interni e automazioni di supporto.
+    </p>
+  </section>
+
+  <section class="sec" id="formazione">
+    <p class="sec-tag">Percorso</p>
+    <h2>Formazione</h2>
+    <div>
+      <div class="tl-item">
+        <div class="tl-date">2019 - 2022</div>
+        <div class="tl-c">
+          <h3>AIV Roma - Indirizzo Programmazione Per Videogiochi</h3>
+          <p class="co">AIV Roma - Accademia Italiana Videogiochi</p>
+          
+          <p>2021/22: Curcuiti logici, Assembly, Fondamenti di elettronica, C, C++, 3D rendering, GPU Programming, Unreal Engine.</p>
+          <p>2020/21: Unity, Fondamenti di Python, Java Script, Machine Learning, Networking.</p>
+          <p>2019/20: C# programming basic, Fondamenti di grafica 2D and 3D, Tecniche di programmazione real time.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2014</div>
+        <div class="tl-c">
+          <h3>Diploma Istituto Tecnico e Professionale, Elettrotecnica e Automazione</h3>
+          <p class="co">Istituto Tecnico Tecnologico Statale Leonardo da Vinci, Viterbo</p>
+          <p> Perito Industriale Capotecnico Specializzazione: Elettrotecnica e Automazione.</p>
+          <p> Graduazione: 78/100 </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <p class="sec-tag">Percorso</p>
+    <h2>Esperienza</h2>
+    <div>
+      <div class="tl-item">
+        <div class="tl-date">2023 — Oggi</div>
+        <div class="tl-c">
+          <h3>Software Developer</h3>
+          <p class="co">Hotminds | Applied Srl</p>
+          <p>Sviluppo di simulatori industriali 3D, visualizzatori 3D per l’industria della moda, soluzioni 3D per VR/AR.</p>
+          <p>Gestione del ciclo di build, rilascio per applicazioni multipiattaforma (Windows, macOS, Android, iOS)</p>
+          <p>Build e deployment automatizzato: DevOps, CI_CD, Jenkins, Azure Storage.</p>
+          <p>Personalizzazione di Unreal Engine Editor in c++ con strumenti dedicati per migliorare i flussi di lavoro e l’efficienza.</p>
+          <p>Contributo in applicazioni sviluppate utilizzando Flutter, React Three Fiber, Dart, JavaScript, TypeScript.</p>
+          <p>Adozione della metodologia Agile (Scrum), con partecipazione a daily stand-up e Sprint bisettimanali.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2023 — Oggi</div>
+        <div class="tl-c">
+          <h3>Addetto al Montaggio di Componenti Elettronici</h3>
+          <p class="co">EG - Elettronica, Viterbo</p>
+          <p>Assemblatore di parti elettroniche su banco</p>
+          <p>Addetto al montaggio di parti elettroniche su banco, ed installazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects" style="max-width:1300px">
+    <p class="sec-tag">Lavori</p>
+    <h2>Progetti</h2>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="pcard-video">
+          <video src="docs/AIAssistant-ConvAI-Wider92.mp4" muted loop playsinline controls></video>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="" target="_blank" rel="noopener">Unreal Engine -
+              ConvAI - AI Assistant</a></h3>
+          <p>Nel progetto sviluppato in Unreal Engine 5.3 viene integrato Convai per creare un assistente virtuale
+            intelligente capace di interagire in linguaggio naturale attraverso la voce. L'assistente riconosce la
+            richiesta dell'utente, risponde in modo coerente e può compiere azioni in tempo reale nell'ambiente 3D.</p>
+          <div class="tags"><span>Unreal Engine</span><span>ConvAI</span><span>C++</span></div>
+        </div>
+      </div>
+        <!----------------  UE plugin CAD Importer -->
+      <div class="pcard">
+        <div class="pcard-video">
+          <video src="docs/UE-custom-plugin-download-resources-webpage_1.mp4" muted loop playsinline controls></video>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="" target="_blank" rel="noopener">Unreal Engine - plugin CAD Importer</a></h3>
+          <p>
+            WebCADImporter è un plugin C++ per Unreal Engine che automatizza il download e l’importazione di risorse direttamente in scena, sfruttando un’interfaccia web integrata nell’Editor.
+            Funzionalità principali:
+            Navigazione e download: integra un widget WebBrowser per caricare pagine web da cui selezionare e scaricare file.
+            Importazione CAD con Datasmith: riconosce i formati CAD standard, li importa sfruttando Datasmith Importer,
+            creando l'asset e istanziandoli automaticamente nella scena.
+            Importazione di asset generici: per tutti gli altri formati supportati dalle factory di importazione di Unreal.
+            Include formati come FBX, OBJ e qualsiasi altro asset editor-importable.
+
+            Limitazioni:
+            Ad ora supporta solo ZIP: estrae .zip, ma non gestisce archivi .rar.
+            Ad ora supporta solo formati CAD come: STEP e STL.
+
+            Utilizzato plugin esterni come: Datasmith, WebBrowser per UI Web.
+          </p>
+          <div class="tags"><span>Unreal Engine</span><span>C++</span></div>
+        </div>
+      </div>
+    <!---------------- Lotti -->
+      <div class="pcard">
+        <div class="pcard-video">
+          <iframe src="https://www.youtube.com/embed/o9MMgOF_EGQ" allowfullscreen></iframe>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="" target="_blank" rel="noopener">Lotti</a></h3>
+          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
+          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+        </div>
+      </div>
+      <!-- <div class="pcard">
+        <div class="pcard-video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="https://github.com/tuousername/progetto-quattro" target="_blank" rel="noopener">Progetto
+              Quattro</a></h3>
+          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
+          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+        </div>
+      </div> -->
+    <!----------------  -->
+      <!-- <div class="pcard">
+        <div class="pcard-video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="https://github.com/tuousername/progetto-cinque" target="_blank" rel="noopener">Progetto
+              Cinque</a></h3>
+          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
+          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" allowfullscreen></iframe>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="https://github.com/tuousername/progetto-sei" target="_blank" rel="noopener">Progetto Sei</a></h3>
+          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
+          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+        </div>
+      </div> -->
+      <div class="pcard">
+        <div class="pcard-video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" allowfullscreen></iframe>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="https://github.com/tuousername/progetto-sette" target="_blank" rel="noopener">Progetto Sette</a>
+          </h3>
+          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
+          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-video">
+          <video src="videos/nome-video.mp4" muted loop playsinline controls></video>
+        </div>
+        <div class="pcard-body">
+          <h3><a href="https://github.com/tuousername/progetto-otto" target="_blank" rel="noopener">Progetto Otto</a>
+          </h3>
+          <p>Descrizione del progetto.</p>
+          <div class="tags"><span>Tag1</span><span>Tag2</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <p class="sec-tag">Contattami</p>
+    <h2>Get in Touch</h2>
+    <div class="clinks">
+      <a href="mailto:tua@email.com" class="clink">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        Email
+      </a>
+      <a href="https://github.com/tuousername" target="_blank" rel="noopener" class="clink">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/tuoprofilo" target="_blank" rel="noopener" class="clink">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Niky Maggini. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+  </script>
 </body>
 
 </html>
