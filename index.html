@@ -16,8 +16,8 @@
     }
 
     :root {
-      --bg: #0a0b14;
-      --bg-light: #111225;
+      --bg: #121533;
+      --bg-light: #242647;
       --text: #e2e4f0;
       --muted: #8a8da0;
       --a1: #6c63ff;
@@ -35,7 +35,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
-      font-size: 16px;
+      font-size: 20px;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden
     }
@@ -53,11 +53,11 @@
       padding: 20px 40px;
       background: rgba(10, 11, 20, .8);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, .05)
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
     }
 
     .logo {
-      font-size: 18px;
+      font-size: 28px;
       font-weight: 600;
       background: var(--grad);
       -webkit-background-clip: text;
@@ -68,13 +68,13 @@
     .nav-links {
       display: flex;
       gap: 28px;
-      list-style: none
+      list-style: none;
     }
 
     .nav-links a {
-      color: var(--muted);
+      color: var(--text);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 24px;
       transition: color .3s
     }
 
@@ -108,7 +108,7 @@
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 120px 24px 80px
+      padding: 120px 24px 80px;
     }
 
     .hero::before {
@@ -164,7 +164,7 @@
     .hero-c {
       position: relative;
       z-index: 1;
-      max-width: 700px
+      max-width: 700px;
     }
 
     .hero-c .greet {
@@ -185,17 +185,9 @@
     }
 
     .hero-c .sub {
-      font-size: 18px;
+      font-size: 20px;
       color: var(--muted);
       margin-bottom: 12px
-    }
-
-    .hero-c .desc {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 550px;
-      margin: 0 auto 36px;
-      line-height: 1.8
     }
 
     .btn {
@@ -241,7 +233,7 @@
 
     .about-text {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 20px;
       line-height: 1.9;
       max-width: 700px
     }
@@ -260,27 +252,27 @@
 
     .tl-date {
       min-width: 140px;
-      font-size: 13px;
+      font-size: 16px;
       color: var(--muted);
       padding-top: 4px
     }
 
     .tl-c h3 {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 600;
       margin-bottom: 4px
     }
 
     .tl-c .co {
       color: var(--a2);
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 500;
       margin-bottom: 8px
     }
 
     .tl-c p {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 20px;
       line-height: 1.7
     }
 
@@ -303,7 +295,7 @@
     }
 
     .pcard:hover {
-      transform: translateY(-4px);
+      transform: translateY(-15px);
       border-color: rgba(108, 99, 255, .3);
       box-shadow: 0 8px 32px rgba(108, 99, 255, .1)
     }
@@ -326,12 +318,49 @@
       border: none
     }
 
+    /* ── Speed overlay ── */
+    .speed-overlay {
+      position: absolute;
+      bottom: 48px; /* sopra la barra controlli nativa */
+      right: 8px;
+      display: flex;
+      gap: 4px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity .25s;
+    }
+
+    .pcard-video:hover .speed-overlay {
+      opacity: 1;
+    }
+
+    .speed-btn {
+      background: rgba(10, 11, 20, .75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      font-family: inherit;
+      padding: 3px 7px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+      line-height: 1.4;
+    }
+
+    .speed-btn:hover,
+    .speed-btn.active {
+      border-color: var(--a2);
+      color: var(--a2);
+    }
+
     .pcard-body {
       padding: 24px 28px 28px
     }
 
     .pcard h3 {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       margin-bottom: 10px
     }
@@ -348,7 +377,7 @@
 
     .pcard p {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.7;
       margin-bottom: 16px
     }
@@ -373,7 +402,7 @@
     .clinks {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px
+      gap: 16px;
     }
 
     .clink {
@@ -388,7 +417,7 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      transition: border-color .3s, transform .3s
+      transition: border-color .3s, transform .3s;
     }
 
     .clink:hover {
@@ -472,59 +501,6 @@
   </style>
 </head>
 
-<body class="font-sans antialiased bg-slate-900 text-slate-400 overflow-x-hidden">
-  <div x-data="app()" x-init="init()">
-    <div id="box-main"
-      class="relative min-h-screen lg:flex lg:max-h-screen lg:min-h-screen lg:overflow-hidden lg:sticky lg:w-[100%] p-4 sm:p-6">
-      <div class="frames hidden lg:block">
-        <div id="frame_line-left" class="absolute w-1 bg-white top-6 bottom-6"></div>
-        <div id="frame_line-right" class="absolute w-1 bg-white top-6 bottom-6 right-6"></div>
-        <div id="frame_line-top" class="absolute h-1 bg-white right-6 left-6"></div>
-        <div id="frame_line-bottom" class="absolute h-1 bg-white right-6 left-6 bottom-6"></div>
-      </div>
-
-      <header id="top-content"
-        class="lg:sticky lg:top-0 lg:flex lg:max-h-screen w-full lg:w-[35%] lg:flex-col lg:justify-start lg:py-10 pl-4 sm:pl-8 lg:pl-16">
-        <nav id="title" class="space-y-3 sm:space-y-5">
-          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif text-white tracking-tight">Niky Maggini</h1>
-          <h2 class="text-lg sm:text-xl lg:text-2xl font-light text-white pl-[0.5rem] sm:pl-[1rem]">Software Developer
-          </h2>
-        </nav>
-        <header class="section-buttons pt-10 pl-[1rem] z-10 w-fit" x-init="load('project')">
-          <nav id="buttons-content">
-            <ol class="flex flex-col space-y-3 sm:space-y-4">
-              <li :class="{ 'is-selected': current==='home' }" @click="load('home')" class="cursor-pointer flex gap-3">
-                <div class="_dot">●</div><span class="_text">Home</span>
-              </li>
-              <li :class="{ 'is-selected': current==='info' }" @click="load('info')" class="cursor-pointer flex gap-3">
-                <div class="_dot">●</div><span class="_text">Info</span>
-              </li>
-              <li :class="{ 'is-selected': current==='project' }" @click="load('project')"
-                class="cursor-pointer flex gap-3">
-                <div class="_dot">●</div><span class="_text">Projects</span>
-              </li>
-              <li :class="{ 'is-selected': current==='contatti' }" class="flex gap-3">
-                <div class="_dot">●</div><span class="_text cursor-pointer" @click="load('contatti')">Contatti</span>
-                <div x-cloak x-show="current === 'contatti'" x-transition.opacity style="display:none"
-                  class="mt-4 sm:mt-7 ml-5 flex items-center gap-3 text-sm">
-                  <label class="inline-flex items-center gap-2" @click.stop>
-                    <input type="checkbox" id="contatti-check" x-model="contattiChecked" class="accent-black/80">
-                    <span>Disabilita movimento contatti.</span>
-                  </label>
-                </div>
-              </li>
-            </ol>
-          </nav>
-        </header>
-      </header>
-
-      <section id="main-viewer3d" aria-label="3D viewer"
-        class="pointer-events-none fixed inset-0 z-[-10] left-0 lg:left-[-400px]">
-        <div id="three-container" class="absolute inset-0 overflow-hidden">
-          <iframe src="build3dgame/neural.html" title="3D" class="w-full h-full block"
-            allow="gamepad *; xr-spatial-tracking; fullscreen"></iframe>
-        </div>
-      </section>
 <!-- ======================================================================================================================================================================================================================================== -->
 <!-- ======================================================================================================================================================================================================================================== -->
 <!-- ======================================================================================================================================================================================================================================== -->
@@ -555,22 +531,22 @@
 
   <section class="hero" id="home">
     <div class="hero-c">
-      <!-- <p class="greet">👋 Hey there, I'm</p> -->
+      <p class="greet">👋 Ciao, sono</p>
       <h1>Niky Maggini</h1>
-      <p class="sub">Costruisco software con un approccio pratico e adattabile. In questi anni ho lavorato su progetti
-        molto diversi tra loro — simulatori industriali, applicazioni VR/AR, visualizzatori 3D, tool interni,
-        automazione di pipeline — imparando a muovermi tra tecnologie e contesti differenti. Il mio punto di forza
-        principale resta Unreal Engine e C++, ma mi trovo a mio agio ogni volta che c'è un problema da risolvere e
-        qualcosa di nuovo da capire.</p>
-      <p class="desc">Automatizzo processi, creo soluzioni intelligenti e trasformo idee in prodotti digitali funzionali
-        e performanti.</p>
+      <p class="sub">Ciao! Sono Niky Maggini, nato nel 1993, sviluppatore software con un percorso iniziato nel game development e 
+                      cresciuto in qualcosa di difficile da etichettare. 
+                      Simulatori industriali 3D, applicazioni VR/AR, visualizzatori 3D per il settore moda, pipeline DevOps multipiattaforma 
+                      — ho imparato a lavorare bene in contesti diversi, e mi trovo a mio agio.
+                      La mia base tecnica è in Unreal Engine, C++ e sistemi real-time 3D, mi muovo con altrettanta facilità nel deployment su 
+                      Windows, macOS, Android e iOS. 
+                      Imparo in fretta, mi adatto ancora più in fretta, e lavoro meglio quando c'è un problema concreto da risolvere.
       <a href="#projects" class="btn">Explore My Work 🚀</a>
     </div>
   </section>
 
   <section class="sec" id="about">
     <p class="sec-tag">Chi sono</p>
-    <h2>Chi sono</h2>
+    <h2>A proposito di me</h2>
     <p class="about-text">Sviluppatore software, background in programmazione multipiattaforma, esperienza in
       automazione dei processi di build, delivery e deployment su ambienti Windows, macOS, Android e iOS.
       Competente nell'utilizzo di motori di gioco come Unreal Engine e Unity, e di strumenti per il deployment
@@ -579,7 +555,7 @@
     </p>
   </section>
 
-  <section class="sec" id="formazione">
+  <!-- <section class="sec" id="formazione">
     <p class="sec-tag">Percorso</p>
     <h2>Formazione</h2>
     <div>
@@ -604,7 +580,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="sec" id="experience">
     <p class="sec-tag">Percorso</p>
@@ -635,30 +611,42 @@
     </div>
   </section>
 
-  <section class="sec" id="projects" style="max-width:1300px">
+  <section class="sec" id="projects" style="max-width:1600px">
     <p class="sec-tag">Lavori</p>
     <h2>Progetti</h2>
     <div class="pgrid">
       <div class="pcard">
         <div class="pcard-video">
           <video src="docs/AIAssistant-ConvAI-Wider92.mp4" muted loop playsinline controls></video>
+          <div class="speed-overlay">
+            <button class="speed-btn" onclick="setSpeed(this,.5)">0.5×</button>
+            <button class="speed-btn active" onclick="setSpeed(this,1)">1×</button>
+            <button class="speed-btn" onclick="setSpeed(this,1.5)">1.5×</button>
+            <button class="speed-btn" onclick="setSpeed(this,2)">2×</button>
+          </div>
         </div>
         <div class="pcard-body">
-          <h3><a href="" target="_blank" rel="noopener">Unreal Engine -
+          <h3><a target="_blank" rel="noopener">Unreal Engine -
               ConvAI - AI Assistant</a></h3>
           <p>Nel progetto sviluppato in Unreal Engine 5.3 viene integrato Convai per creare un assistente virtuale
             intelligente capace di interagire in linguaggio naturale attraverso la voce. L'assistente riconosce la
             richiesta dell'utente, risponde in modo coerente e può compiere azioni in tempo reale nell'ambiente 3D.</p>
-          <div class="tags"><span>Unreal Engine</span><span>ConvAI</span><span>C++</span></div>
+          <div class="tags"><span>Unreal Engine</span><span>ConvAI</span><span>C++</span><span>SVN (Subversion)</span></div>
         </div>
       </div>
         <!----------------  UE plugin CAD Importer -->
       <div class="pcard">
         <div class="pcard-video">
           <video src="docs/UE-custom-plugin-download-resources-webpage_1.mp4" muted loop playsinline controls></video>
+          <div class="speed-overlay">
+            <button class="speed-btn" onclick="setSpeed(this,.5)">0.5×</button>
+            <button class="speed-btn active" onclick="setSpeed(this,1)">1×</button>
+            <button class="speed-btn" onclick="setSpeed(this,1.5)">1.5×</button>
+            <button class="speed-btn" onclick="setSpeed(this,2)">2×</button>
+          </div>
         </div>
         <div class="pcard-body">
-          <h3><a href="" target="_blank" rel="noopener">Unreal Engine - plugin CAD Importer</a></h3>
+          <h3><a target="_blank" rel="noopener">Unreal Engine - plugin CAD Importer</a></h3>
           <p>
             WebCADImporter è un plugin C++ per Unreal Engine che automatizza il download e l’importazione di risorse direttamente in scena, sfruttando un’interfaccia web integrata nell’Editor.
             Funzionalità principali:
@@ -666,13 +654,10 @@
             Importazione CAD con Datasmith: riconosce i formati CAD standard, li importa sfruttando Datasmith Importer,
             creando l'asset e istanziandoli automaticamente nella scena.
             Importazione di asset generici: per tutti gli altri formati supportati dalle factory di importazione di Unreal.
-            Include formati come FBX, OBJ e qualsiasi altro asset editor-importable.
+            Include formati come FBX, OBJ e qualsiasi altro asset editor-importable.</p>
+            
+            <p>Utilizzato plugin esterni come: Datasmith, WebBrowser per UI Web.</p>
 
-            Limitazioni:
-            Ad ora supporta solo ZIP: estrae .zip, ma non gestisce archivi .rar.
-            Ad ora supporta solo formati CAD come: STEP e STL.
-
-            Utilizzato plugin esterni come: Datasmith, WebBrowser per UI Web.
           </p>
           <div class="tags"><span>Unreal Engine</span><span>C++</span></div>
         </div>
@@ -683,88 +668,57 @@
           <iframe src="https://www.youtube.com/embed/o9MMgOF_EGQ" allowfullscreen></iframe>
         </div>
         <div class="pcard-body">
-          <h3><a href="" target="_blank" rel="noopener">Lotti</a></h3>
-          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
-          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=o9MMgOF_EGQ" target="_blank" rel="noopener">Lotti</a></h3>
+          <p>Videogioco sviluppato durante il percorso accademico presso AIV, realizzato all'interno di un team.</p>
+          <p>Si tratta di un platform/puzzle game creato utilizzando Unreal Engine 4.27.</p>
+          <p>Ho ricoperto il ruolo di Gameplay & UI Programmer, occupandomi dell'implementazione di alcune meccaniche di gioco e dell'interfaccia utente.</p>
+          <div class="tags"><span>Gameplay Programmer</span><span>Unreal Engine</span><span>C++</span><span>SVN (Subversion)</span></div>
         </div>
       </div>
-      <!-- <div class="pcard">
+      <div class="pcard">
         <div class="pcard-video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/XLRLgcilpOY" allowfullscreen></iframe>
         </div>
         <div class="pcard-body">
-          <h3><a href="https://github.com/tuousername/progetto-quattro" target="_blank" rel="noopener">Progetto
-              Quattro</a></h3>
-          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
-          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=XLRLgcilpOY" target="_blank" rel="noopener">Biru & the shard</a></h3>
+          <p>Videogioco sviluppato durante il percorso accademico presso AIV, realizzato all'interno di un team con focus sul genere platform/puzzle.</p>
+          <p>Ho ricoperto il ruolo di Gameplay Programmer.</p>
+          <div class="tags"><span>Gameplay Programmer</span><span>Unity</span><span>C#</span><span>Git</span></div>
         </div>
-      </div> -->
+      </div>
     <!----------------  -->
-      <!-- <div class="pcard">
+       <div class="pcard">
         <div class="pcard-video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/FBNFJSjscnc" allowfullscreen></iframe>
         </div>
         <div class="pcard-body">
-          <h3><a href="https://github.com/tuousername/progetto-cinque" target="_blank" rel="noopener">Progetto
-              Cinque</a></h3>
-          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
-          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=FBNFJSjscnc" target="_blank" rel="noopener">Top Down Game</a></h3>
+          <p>Videogioco sviluppato individualmente durante il percorso accademico presso AIV, utilizzando Visual Studio e il linguaggio C#.</p>
+          <p>Il progetto è stato realizzato con la libreria grafica proprietaria "Aiv-fast2d", focalizzandosi su concetti base di game loop, gestione degli input, grafica 2D e logica di gioco.</p>
+          <div class="tags"><span>Visual Studio</span><span>C#</span><span>Aiv-fast2d</span><span>Git</span></div>
         </div>
       </div>
-      <div class="pcard">
-        <div class="pcard-video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" allowfullscreen></iframe>
-        </div>
-        <div class="pcard-body">
-          <h3><a href="https://github.com/tuousername/progetto-sei" target="_blank" rel="noopener">Progetto Sei</a></h3>
-          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
-          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
-        </div>
-      </div> -->
-      <div class="pcard">
-        <div class="pcard-video">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" allowfullscreen></iframe>
-        </div>
-        <div class="pcard-body">
-          <h3><a href="https://github.com/tuousername/progetto-sette" target="_blank" rel="noopener">Progetto Sette</a>
-          </h3>
-          <p>Portfolio personale con deploy automatico e CI/CD integrata.</p>
-          <div class="tags"><span>HTML/CSS</span><span>JS</span><span>GitHub Pages</span></div>
-        </div>
-      </div>
-      <div class="pcard">
-        <div class="pcard-video">
-          <video src="videos/nome-video.mp4" muted loop playsinline controls></video>
-        </div>
-        <div class="pcard-body">
-          <h3><a href="https://github.com/tuousername/progetto-otto" target="_blank" rel="noopener">Progetto Otto</a>
-          </h3>
-          <p>Descrizione del progetto.</p>
-          <div class="tags"><span>Tag1</span><span>Tag2</span></div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="sec" id="contact">
     <p class="sec-tag">Contattami</p>
     <h2>Get in Touch</h2>
     <div class="clinks">
-      <a href="mailto:tua@email.com" class="clink">
+      <a href="/cdn-cgi/l/email-protection#2d4344465403404c4a4a4443446d42585941424246034459" class="clink">
         <svg viewBox="0 0 24 24">
           <path
             d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
         </svg>
         Email
       </a>
-      <a href="https://github.com/tuousername" target="_blank" rel="noopener" class="clink">
+      <a href="https://github.com/NikyMaggini" target="_blank" rel="noopener" class="clink">
         <svg viewBox="0 0 24 24">
           <path
             d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
         </svg>
         GitHub
       </a>
-      <a href="https://linkedin.com/in/tuoprofilo" target="_blank" rel="noopener" class="clink">
+      <a href="https://www.linkedin.com/in/niky-maggini" target="_blank" rel="noopener" class="clink">
         <svg viewBox="0 0 24 24">
           <path
             d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -778,9 +732,16 @@
     <p>&copy; 2026 Niky Maggini. Tutti i diritti riservati.</p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+
+    function setSpeed(btn, speed) {
+      const overlay = btn.closest('.speed-overlay');
+      const video   = overlay.previousElementSibling; // <video> è il fratello precedente
+      video.playbackRate = speed;
+      overlay.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
   </script>
 </body>
-
 </html>
