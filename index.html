@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niky Maggini — Developer</title>
+  <title>Niky Maggini — Software Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *,
@@ -617,6 +617,24 @@
     <p class="sec-tag">Lavori</p>
     <h2>Progetti</h2>
     <div class="pgrid">
+      <!---------------- After Effects Automazione -->
+      <div class="pcard">
+        <div class="pcard-video">
+          <video src="docs/AE Automazione 2026-03-02 11-16-29.mp4" muted loop playsinline controls></video>
+          <div class="speed-overlay">
+            <button class="speed-btn" onclick="setSpeed(this,.5)">0.5×</button>
+            <button class="speed-btn active" onclick="setSpeed(this,1)">1×</button>
+            <button class="speed-btn" onclick="setSpeed(this,1.5)">1.5×</button>
+            <button class="speed-btn" onclick="setSpeed(this,2)">2×</button>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <h3><a target="_blank" rel="noopener">After Effects Automation System — JSON-Driven Template Engine</a></h3>
+          <p>Un sistema di automazione per la produzione video su larga scala basato su template After Effects. Il workflow si compone di due script: un pannello ScriptUI ancorable all'interfaccia di AE per configurare visualmente il job, e uno script di esecuzione che applica le modifiche al progetto in modo non-distruttivo.
+L'operatore definisce per ogni scena il testo (titolo e sottotitolo, con supporto multiriga), la sorgente video e il range di timecode. Il sistema provvede automaticamente a sostituire i layer nelle composizioni annidate, importare i footage evitando duplicati tramite doppia cache (sessione + scansione progetto), e salvare il progetto modificato nella destinazione specificata.</p>
+          <div class="tags"><span>Adobe After Effects</span><span>Adobe After Effects ExtendScript</span><span>ScriptUI</span><span>JSON</span></div> 
+        </div>
+      </div>
       <!---------------- Minerva -->
       <div class="pcard">
         <div class="pcard-video">
